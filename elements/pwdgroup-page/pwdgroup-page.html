@@ -1,0 +1,71 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../elements/pwdgroup-menu/pwdgroup-menu.html">
+<link rel="import" href="../../elements/background-slider/background-slider.html">
+<link rel="import" href="../../elements/foreground-slider/foreground-slider.html">
+<link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
+
+
+<polymer-element name="pwdgroup-page" attributes="homepage services newsroom careers aboutus contactus">
+    <template>
+        <style>
+            :host {}
+            
+            .maillink {
+                text-decoration: none;
+                color: #666;
+            }
+            
+            .maillink:hover {
+                text-decoration: underline;
+            }
+        </style>
+        <link rel="stylesheet" href="pwdgroup-page.css">
+
+        <div hidden?="{{phoneScreen}}">
+            <pwdgroup-menu style="z-index: 10000" home="{{homepage}}" services="{{services}}" newsroom="{{newsroom}}" careers="{{careers}}" aboutus="{{aboutus}}" contactus="{{contactus}}"></pwdgroup-menu>
+        </div>
+
+        <div style="//height: 10px; width: 100%;"></div>
+
+
+        <div horizontal layout center-justified>
+            <div style="min-height: calc(100vh - 204px);">
+                <content></content>
+            </div>
+        </div>
+
+        <footer flex>
+            <div class="footer-wrapper">
+                <div horizontal layout flex style="width: 1200px; text-align: center; margin: 0 auto;">
+                </div>
+                <div horizontal layout flex style="width: 1200px; text-align: center; margin: 0 auto; padding-top: 30px;">
+                    <div class="divider"></div>
+                </div>
+                <div style="width: 1200px; text-align: center; padding-top: 20px; color: #666; margin: 0 auto;">
+                    <div horizontal layout>
+                        <div>&copy; PWD Group, Inc | All Rights Reserved</div>
+                        <div flex></div>
+                        <div style="padding-right: 5px;">Phone: (281) 222-4527 |</div>
+                        <div style="padding-right: 5px;">Email: <a class="maillink" href="mailto:pwdgroups_support@pwdgroups.com">pwdgroups_support@pwdgroups.com</a>
+                        </div>
+                    </div>
+                    <div horizontal layout>
+                        <div flex></div>
+                        <div style="//padding-right: 10px;">3901 Arlington Highlands Blvd, Suite 200, Arlington, TX 76018</div>
+                    </div>
+                </div>
+            </div>
+
+        </footer>
+
+    </template>
+
+
+    <script>
+        Polymer({
+
+        });
+    </script>
+
+</polymer-element>

@@ -1,0 +1,52 @@
+<link rel="import" href="../../bower_components/core-image/core-image.html">
+
+<polymer-element name="trainer-pool" attributes="name titles pic affiliation" noscript>
+    <template>
+        <style>
+            .trainer-wrapper {
+                font-size: 16px;
+                margin-bottom: 30px;
+                border-bottom: 1px solid #ccc;
+                padding-bottom: 15px;
+            }
+            
+            .profile-pic {
+                width: 150px;
+                height: 150px;
+                background: grey;
+                border-radius: 50%;
+                overflow: hidden;
+            }
+            
+            .name {
+                padding-top: 10px;
+                font-size: 20px;
+                font-weight: bold;
+                padding-bottom: 20px;
+            }
+            
+            .bio {
+                line-height: 26px;
+                font-size: 16px;
+            }
+        </style>
+        <div class="trainer-wrapper" horizontal layout>
+            <div>
+                <div class="profile-pic">
+                    <core-image style="width: 150px; height: 150px;" sizing="cover" src="img/trainers/{{pic}}"></core-image>
+                </div>
+            </div>
+            <div style="padding-left: 150px;">
+                <div class="name">{{name}}</div>
+                <div style="color: #666; margin-top: -20px; padding-bottom: 15px;">
+                    <div>{{titles}}</div>
+                    <div>{{affiliation}}</div>
+                </div>
+                <div class="bio">
+                    <content></content>
+                </div>
+            </div>
+        </div>
+
+    </template>
+</polymer-element>

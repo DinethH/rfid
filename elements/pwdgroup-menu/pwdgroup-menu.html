@@ -1,0 +1,139 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../elements/menu-item/menu-item.html">
+<link rel="import" href="../../bower_components/paper-icon-button/paper-icon-button.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../elements/menu-item/menu-item.html">
+<link rel="import" href="../../bower_components/core-media-query/core-media-query.html">
+
+
+<polymer-element name="pwdgroup-menu" attributes="pageOver home services newsroom careers aboutus contactus">
+    <template>
+        <link rel="stylesheet" href="pwdgroup-menu.css">
+        
+        <core-media-query query="max-width: 800px" queryMatches="{{phoneScreen}}"></core-media-query>
+
+        <div>
+            <div vertical layout center class="menu-wrapper">
+
+                <div horizontal layout>
+                    <div class="{{ {'menu-inner-wrapper': !phoneScreen} | tokenList }}" layout horizontal>
+                        <div>
+                            <a href="http://pwdgroups.com/"><img style="width: 300px;" src="../../img/logo.png">
+                            </a>
+                        </div>
+                        <div flex></div>
+                        <div>
+                            <!--
+                            <a href="https://www.facebook.com/pwdgroups" target="_blank">
+                                <paper-icon-button src="../../img/icons/facebook-4-xxl.png"></paper-icon-button>
+                            </a>
+                            <a href="https://www.linkedin.com/company/pwd-group-inc-" target="_blank">
+                                <paper-icon-button src="../../img/icons/linkedin-4-xxl.png"></paper-icon-button>
+                            </a>
+                            -->
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <paper-shadow z="2">
+
+                <div class="pwdgroup-menu-bar " vertical layout center>
+
+                    <div horizontal layout class="{{ {'menu-inner-wrapper': !phoneScreen} | tokenList }}">
+                        <a href="../../index.html">
+                            <menu-item menuItem="Home" selected="{{home}}" home="{{home}}"></menu-item>
+                        </a>
+                        <a href="../../trainers.html">
+                            <menu-item menuItem="Trainer Pool"></menu-item>
+                        </a>
+                        <a href="../../">
+                            <menu-item menuItem="Register"></menu-item>
+                        </a>
+                        <div flex></div>
+                        <div></div>
+                    </div>
+                </div>
+            </paper-shadow>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer({
+            created: function () {
+                this.servicesSubMenu = [
+                    {
+                        route: "./services/#Consulting",
+                        service: 'Consulting',
+                },
+                    {
+                        route: "./services/#Facilities",
+                        service: 'Facilities',
+                },
+                    {
+                        route: "./services/#Warehousing",
+                        service: 'Warehousing',
+                },
+                    {
+                        route: "./services/#Technology",
+                        service: 'Technology',
+                },
+                    {
+                        route: './services/#Publications',
+                        service: 'Publications',
+                },
+                    {
+                        route: "./services/#Food",
+                        service: 'Food',
+                },
+                    {
+                        route: "./services/#Security",
+                        service: 'Security',
+                },
+                    {
+                        route: "./services/#Administration",
+                        service: 'Administration',
+                },
+                    {
+                        route: "./services/#Telecommunications",
+                        service: 'Telecommunications',
+                },
+                    {
+                        route: "./services/#environmental",
+                        service: 'Environmental',
+                }
+                ];
+                this.newsRoomSubMenu = [
+
+                ];
+                this.careersSubMenu = [
+                    {
+                        route: "./careers/#current",
+                        service: 'Current',
+                },
+                    {
+                        route: "./careers/#future",
+                        service: 'Future',
+                }
+                ];
+                this.aboutSubMenu = [
+                    {
+                        route: "./about-us/#1",
+                        service: 'Certifications',
+                },
+                    {
+                        route: "./about-us/#2",
+                        service: 'Our Values',
+                },
+                    {
+                        route: "./about-us/#3",
+                        service: 'Locations',
+                }
+                ]
+            }
+        });
+    </script>
+
+</polymer-element>

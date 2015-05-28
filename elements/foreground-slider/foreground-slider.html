@@ -1,0 +1,64 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+<link rel="import" href="../../bower_components/core-animated-pages/core-animated-pages.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/cross-fade.html">
+<link rel="import" href="../../bower_components/core-animated-pages/transitions/slide-from-right.html">
+
+<link rel="import" href="../../bower_components/core-image/core-image.html">
+
+<polymer-element name="foreground-slider">
+    <template>
+        <link rel="stylesheet" href="foreground-slider.css">
+        <paper-shadow z="0">
+
+
+            <section id="section" style="width: 1200px; height: 400px; overflow: hidden; z-index: -1">
+                <core-animated-pages style="height: 600px; " transitions="cross-fade-all slide-from-right" selected="{{slideNumber}}" lastselected="1" selectedindex="0" id="core_animated_pages2">
+
+                    <section>
+
+                        <div cross-fade horizontal layout center>
+
+                            <core-image sizing="cover" style="width:100%; height: 400px;" src="../../img/management.jpg"></core-image>
+
+                        </div>
+
+                    </section>
+                    <section>
+
+                        <div cross-fade>
+                            <core-image sizing="cover" style="width:100%; height: 400px;" src="../../img/tech.jpg"></core-image>
+                        </div>
+
+                    </section>
+                    <section>
+
+                        <div cross-fade>
+                            <core-image sizing="cover" style="width:100%; height: 400px;" src="../../img/blackline.jpg"></core-image>
+                        </div>
+
+                    </section>
+                </core-animated-pages>
+            </section>
+        </paper-shadow>
+
+    </template>
+    <script>
+        Polymer({
+            ready: function () {
+                this.nextCount();
+            },
+            nextCount: function () {
+                if (this.slideNumber < 2) {
+                    this.slideNumber++;
+                } else {
+                    this.slideNumber = 0;
+                }
+                this.async(this.nextCount, null, 6000);
+            },
+            slideNumber: -1
+
+        });
+    </script>
+
+</polymer-element>

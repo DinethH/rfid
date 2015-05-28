@@ -1,0 +1,55 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../../bower_components/paper-item/paper-item.html">
+<link rel="import" href="../../bower_components/core-menu/core-menu.html">
+<link rel="import" href="../../bower_components/paper-shadow/paper-shadow.html">
+
+
+<polymer-element name="menu-item" attributes="menuItem isClicked selected home services newsroom careers aboutus contactus turnOn subMenuItems">
+    <template>
+        <link rel="stylesheet" href="menu-item.css">
+        <style>
+            .menu-item > .menu {
+                display: none;
+            }
+            
+            .menu-item:hover > .menu {
+                display: block;
+            }
+            .menu-item:hover {
+                background: black;
+            }
+            a {
+                text-decoration: none;
+                color: white;
+            }
+            .menu {
+                margin-left: 0px;
+            }
+        </style>
+
+        <div class="menu-item">
+            <div class="menuItem {{ {'selected': selected} | tokenList }}" role="button">{{menuItem}}</div>
+            <div style="background: transparent; width: 100px; height: 20px; position: absolute; margin-top: -5px;"></div>
+            <template if="{{turnOn}}">
+
+                <core-menu class="menu" style="z-index: 100;">
+                    <paper-shadow z="10">
+                        <template repeat="{{subMenuItem in subMenuItems}}">
+                            <a href="{{ {'../': !home} | tokenList }}{{subMenuItem.route}}"><paper-item>{{subMenuItem.service}}</paper-item></a>
+                        </template>
+                    </paper-shadow>
+
+                </core-menu>
+            </template>
+        </div>
+
+    </template>
+
+    <script>
+        Polymer({
+            created: function () {
+            }
+        });
+    </script>
+
+</polymer-element>

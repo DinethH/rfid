@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>RFID</title>
+    <meta name="theme-color" content="#024689">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/app-router/app-router.html">
+    <link rel="import" href="elements/pwdgroup-page/pwdgroup-page.html">
+    <link rel="import" href="elements/background-slider/background-slider.html">
+    <link rel="import" href="elements/foreground-slider/foreground-slider.html">
+    <link rel="import" href="elements/trainer-pool/trainer-pool.html">
+    <link rel="import" href="bower_components/polymer/polymer.html">
+    <link rel="import" href="bower_components/core-animated-pages/core-animated-pages.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/cross-fade.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-from-right.html">
+    <link rel="import" href="bower_components/core-animated-pages/transitions/slide-up.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tab.html">
+    <link rel="import" href="bower_components/core-pages/core-pages.html">
+</head>
+
+<style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background-color: #eaeaea;
+    }
+</style>
+
+
+<body>
+    <polymer-element name="home-page">
+        <template>
+            <style>
+                .background-image {
+                    width: 100%;
+                    min-width: 100vw;
+                }
+                
+                .foreground-image {
+                    width: 1200px;
+                }
+            </style>
+
+
+
+            <div style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+                <h1>Trainers Pool</h1>
+                <br>
+                <br>
+
+
+                <trainer-pool name="Dr. Erick C. Jones" titles="Professor" pic="erick-jones.jpg" affiliation="University of Texas Arlington
+">Dr. Erick C. Jones is the Director of the Radio Frequency Auto Identification Lab (RAID) and an assistant professor at the University of Texas at Arlington. It is a future NSF Industry/University Cooperative, in which industry and academia work together on applied research and projects. His industry experience as an engineer, and Big 5 consultant along with working in academia allows him to provide insight on how this emerging technology will impact the future.
+
+                </trainer-pool>
+
+                <trainer-pool name="Samuel Okate" pic="okate.png" titles="System Specialist Engineer" affiliation="MSSE, FAA/DFW Airport
+">
+                    Samuel I. Okate is working with the Federal Aviation Administration at the D/FW Airport as a System Specialist Engineer for 9 years. He is currently attending the University of Texas at Arlington (UTA) completing his PhD in Industrial Engineering. He earned his M.S. in Systems Engineering from University Texas at Arlington in December of 2010. He also earned his B.S. in Electrical/Electronics Engineering from the University of North Texas in August of 2004. Samuel is one of the manager's for the Radio Frequency Identification (RAID) research labs at UTA. He is from Arlington and has lived there his entire life. Samuel is really enthusiastic about learning new things and meeting new people.
+
+
+                </trainer-pool>
+
+                <trainer-pool name="Billy Gray" pic="billy.jpg" titles="Assistant Professor" affiliation="MSSEM, Tarleton University
+">
+                    Billy Gray is an Assistant Professor at Tarleton State University in the Department of Engineering Technology. He holds a Master’s degree from Texas Tech University in Systems and Engineering Management and a Bachelor’s degree from Tarleton in Manufacturing Engineering Technology. He has 10 years of work experience in manufacturing, operations, and engineering management. He is currently pursuing his PhD in Industrial and Manufacturing Systems Engineering at the University of Texas at Arlington.
+
+
+                </trainer-pool>
+
+            </div>
+
+
+        </template>
+        <script>
+            Polymer({
+                ready: function () {
+                    this.nextCount();
+                    this.selectedTab = 0;
+                },
+                browseISCEA: function () {
+                    if (this.slideNumber == 0)
+                        window.location.href = "http://pwdgroups.com/iscea/";
+                },
+                slideZero: function () {
+                    this.slideNumber = 0;
+                },
+                SlideOne: function () {
+                    this.slideNumber = 1;
+                },
+                nextCount: function () {
+                    if (this.slideNumber < 1) {
+                        this.slideNumber++;
+                    } else {
+                        this.slideNumber = 0;
+                    }
+                    this.async(this.nextCount, null, 6000);
+                },
+                slideNumber: -1
+
+            });
+        </script>
+    </polymer-element>
+    <pwdgroup-page homepage="true">
+        <home-page></home-page>
+    </pwdgroup-page>
+
+
+</body>
+
+</html>
