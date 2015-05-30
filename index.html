@@ -52,12 +52,25 @@
                 .foreground-image {
                     width: 1200px;
                 }
+                
+                .topics tr:nth-child(even) td {
+                    background: #666;
+                }
+                
+                .topics td {
+                    padding: 10px;
+                    margin: 0;
+                }
+                
+                .topics {
+                    border: 0;
+                }
             </style>
 
             <core-media-query query="max-width: 800px" queryMatches="{{phoneScreen}}"></core-media-query>
 
 
-            <core-animated-pages style="height: 500px; width:100vw; overflow: hidden; " transitions="cross-fade-all slide-from-right" selected="{{slideNumber}}" lastselected="1" selectedindex="0" id="core_animated_pages2">
+            <core-animated-pages style="height: 500px; width:100vw; overflow: hidden; " transitions="cross-fade-all slide-from-right" selected="{{slideNumber}}" lastselected="1" selectedindex="0" id="core_animated_pages2" hidden?="{{phoneScreen}}">
                 <section>
                     <div cross-fade horizontal layout center>
                         <div>
@@ -82,27 +95,27 @@
             </core-animated-pages>
 
 
-            <div style="max-width: 1200px; margin: 0 auto;">
+            <div style="max-width: 1200px; margin: 0 auto;" hidden?="{{phoneScreen}}">
                 <!-- foreground image -->
-                <core-animated-pages style="height: 500px; width:100vw; overflow: hidden; position: absolute; top: 120px;" transitions="cross-fade-all slide-from-right slide-up" selected="{{slideNumber}}" lastselected="1" selectedindex="0">
+                <core-animated-pages style="height: 500px; width:100vw; overflow: hidden; position: absolute; top: 108px;" transitions="cross-fade-all slide-from-right slide-up" selected="{{slideNumber2}}" lastselected="1" selectedindex="0">
                     <section>
                         <div cross-fade slide-up horizontal layout center>
                             <div>
-                                <img class="foreground-image" src="./img/01.jpg">
+                                <img class="foreground-image" src="./img/slide1.png">
                             </div>
                         </div>
                     </section>
                     <section>
                         <div cross-fade>
                             <div>
-                                <img class="foreground-image" src="./img/02.jpg">
+                                <img class="foreground-image" src="./img/slide2.png">
                             </div>
                         </div>
                     </section>
                     <section>
-                        <div cross-fade>
+                        <div cross-fade slide-up>
                             <div>
-                                <img class="foreground-image" src="./img/03.jpg">
+                                <img class="foreground-image" src="./img/slide3.png">
                             </div>
                         </div>
                     </section>
@@ -111,36 +124,86 @@
 
 
             <div hidden?="{{!phoneScreen}}">
-                <img src="img/RFID%20Conference%20Banner.png" style="width: 100%;">
+                <a target="_blank" href="http://www.eventbrite.com/e/rfid-certification-program-tickets-21108135">
+                    <img src="img/RFID%20Conference%20Banner.png" style="width: 100%;">
+                </a>
             </div>
 
 
             <div hidden?="{{phoneScreen}}" style="background: #eef3f5;">
                 <!-- training banner -->
                 <div style="max-width: 1200px; margin: 0 auto;">
-                    <div style="width: 100%; padding: 50px;" flex horizontal layout center center-justified>
+                    <div style="width: 100%; padding-top: 20px; padding-bottom: 20px;" flex horizontal layout center center-justified>
                         <div>
-                            <img src="img/RFID%20Conference%20Banner.png" style="width: 100%;">
+                            <a target="_blank" href="http://www.eventbrite.com/e/rfid-certification-program-tickets-21108135">
+                                <img src="img/RFID%20Conference%20Banner.png" style="width: 100%;">
+                            </a>
                         </div>
                     </div>
                 </div>
             </div>
 
             <a id="test"></a>
-            <div style="height: 400px; background: #333;">
+            <div style="min-height: 600px; background: #333;">
                 <div style="max-width: 1200px; margin: 0 auto; font-size: 18px;">
                     <paper-tabs selected="{{selectedTab}}" style="color: white;">
                         <paper-tab>Overview</paper-tab>
                         <paper-tab>RFID SCM</paper-tab>
                         <paper-tab>RFID SCP</paper-tab>
                     </paper-tabs>
-                    <core-pages selected="{{selectedTab}}" style="color: white; margin: 10px;">
-                        <div>
-                            Overview
+                    <div selected="{{selectedTab}}" style="color: white; margin: 10px;">
+                        <div hidden?="{{selectedTab != 0}}" style="min-height: 450px;">
+                            <p><strong>Introduction</strong>
+                            </p>
+                            <p>Radio Frequency Identification (RFID) technology is a fast growing technology. Many industries have integrated RFID technology with their systems and have discovered the scaling benefits. RFID is a valuable improvement, whether it is used in tracking and monitoring the supply chain, securing access to facilities and items, or locating items. However there are still many doubts as to the technologies capabilities. The certification training is a means to remove all doubts and get a clear understanding of the RFID technology and its capabilities.</p>
+
+                            <p><strong>Topics Covered</strong>
+                            </p>
+
+                            <table class="topics" border="0" cellpadding="0" cellspacing="0">
+                                <tr>
+                                    <td style="width: 30%">RFID History and Key Concepts:
+
+                                    </td>
+                                    <td>Introduction of RFID and its evolution, fundamentals of RFID and key components of an RFID system</td>
+                                </tr>
+                                <tr>
+                                    <td>RFID Standards:</td>
+                                    <td>Overview of key ISO and EPCglobal standards, issues they solve and implications for RFID deployment</td>
+                                </tr>
+                                <tr>
+                                    <td>RFID Deployment:
+
+                                    </td>
+                                    <td>Strategic considerations for an RFID project, cost-benefit analysis, assessment of physical environment, selecting the right pilot and metrics, component selection, factors affecting scope and implementation of an RFID project, vendor selection
+
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Data Integration:
+
+                                    </td>
+                                    <td>Overview of the type of data generated, role of RFID middleware, EPC Information Services (EPC IS)</td>
+                                </tr>
+                                <tr>
+                                    <td>RFID Drivers and Barriers:</td>
+                                    <td>Overview and implications of Wal-Mart and US Department of Defense mandates, security issues surrounding RFID, technology evolution and trends</td>
+                                </tr>
+                                <tr>
+                                    <td>Hands on Training (RFID SCM Only):</td>
+                                    <td>Complete a project with both active and passive RFID technology</td>
+                                </tr>
+                            </table>
+
+                            <br>
+                            <br>
+                            <br>
                         </div>
-                        <div>
+                        <div hidden?="{{selectedTab != 1}}" style="min-height: 450px;">
                             <strong>RFID SCM (Supply Chain Manager)</strong>
-                            <p>ISCEA RFID Supply Chain Manager (SCM) Program certifies that the holder of the Certificate has both the technical and business application disciplines paramount in making an intelligent business decision with regard to RFID applications in supply chain operation.</p>
+                            <p>The RFID Supply Chain Manager (SCM) Certification provides not only the theory of the technology but also provides individuals with hands on training at our RFID facility, with both passive and active RFID systems. This is done in order for the participants to receive a complete training experience. The RFID SCM certification was designed for companies to identify individuals who have taken the next step in RFID Certification. Individual who not only know theory of RFID, but also know the Technical and Business application disciplines, aiding in making intelligent business decision with regard to RFID applications.
+
+                            </p>
                             <p>RFIDSCM is the supply chain industry standard for RFID, recommended for these professionals with the following profiles and responsibilities:
                             </p>
                             <p>
@@ -159,49 +222,77 @@
                                 </ul>
                             </p>
                         </div>
-                        <div>
+                        <div hidden?="{{selectedTab != 2}}" style="min-height: 450px;">
                             <strong>RFID SCP (Supply Chain Practitioner)</strong>
                             <p>As Radio Frequency Identification (RFID) is fast becoming one of the most important technologies in the world today, many industry companies are integrating this technology for better asset management. Amid all this enthusiasm surrounding RFID, decision makers from corporate and non-corporate world alike are facing some key questions – what exactly is RFID, how much is fact and how much is fiction, what is the ROI on RFID investments and is the technology ready for mainstream deployment. The ISCEA Certified Supply Chain Practitioner (SCP) is designed for all employees to understand the basic applications of RFID Technology, in order to answer these questions. </p>
                         </div>
-                    </core-pages>
+                        </core-pages>
 
-                </div>
-            </div>
-
-            <div style="height: 220px; background: #03A9F4; padding: 20px;">
-                <div style="max-width: 1200px; margin: 0 auto; color: white; font-size: 60px; height: 200px; text-align: center" horizontal layout center center-justified>
-                    <a href="trainers.html" style="color: white; text-decoration: none;">
-                        <div horizontal layout center center-justified>
-                            <div><img src="img/trainer-pool.png" style="max-width:200px;">
-                            </div>
-                            <div style="width: 50px;"></div>
-                            <div>RFID Trainer Pool >></div>
-                        </div>
-                    </a>
-
-                </div>
-            </div>
-
-
-            <div hidden?="{{!phoneScreen}}">
-                <a href="http://pwdgroups.com/next-gen-rfid-unleashed/"><img src="img/Upcoming_Project.png" style="width: 100%;">
-            </div>
-            </a>
-
-            <div hidden?="{{phoneScreen}}" style="height: 180px; background: #ffffff; padding-top: 20px; padding-bottom: 20px;">
-                <div style="max-width: 1200px; margin: 0 auto; color: white; font-size: 60px; text-align: center" horizontal layout center center-justified>
-                    <div>
-                        <a href="http://pwdgroups.com/next-gen-rfid-unleashed/">
-                            <img src="img/Upcoming_Project.png" style="width: 100%;">
-                        </a>
                     </div>
                 </div>
-            </div>
+
+                <div style="background: #fff; padding: 20px;" flex?="{{phoneScreen}}">
+                    <div style="max-width: 1200px; margin: 0 auto; color: white; height: 200px; text-align: center" horizontal?="{{!phoneScreen}}" vertical?="{{phoneScreen}}" layout center center-justified>
+
+                        <div flex two style="background: #03A9F4; height: 200px;" horizontal?="{{!phoneScreen}}" vertical?="{{phoneScreen}}" layout center center-justified>
+                            <a href="trainers.html" style="color: white; text-decoration: none;">
+                                <div horizontal layout center center-justified style="padding: 10px; ">
+                                    <div><img src="img/trainer-pool.png" style="max-width:100px;">
+                                    </div>
+                                    <div style="width: 50px;"></div>
+                                    <div style="font-size: 48px;">RFID Trainer Pool</div>
+                                </div>
+                            </a>
+                        </div>
+                        <div flex style="background: #b9b044; width: 100%; padding-right: 8px;">
+                            <div flex style="height: 200px; width: 100%;" vertical layout center center-justified>
+                                <div flex horizontal layout center style="background: #4CAF50;  width: 100%;  padding-left: 15px;">
+                                    <div><img src="img/rfid.webp" style="max-height:80px;">
+                                    </div>
+                                    <div style="width: 50px;"></div>
+                                    <div style="font-size: 36px;"><a href="https://play.google.com/store/apps/details?id=com.pwdgroups.rfidscp" style="color: white; text-decoration: none;">RFID SCP App</a>
+                                    </div>
+                                </div>
+                                <div flex horizontal layout center style="background: #01579B;  width: 100%; padding-left: 15px;">
+                                    <div><img src="img/TrackedStu.jpg" style="max-height:80px; padding-left: 8px;">
+                                    </div>
+                                    <div style="width: 50px;"></div>
+                                    <div style="font-size: 36px; padding-left: 10px;"><a href="http://pwdgroups.com/v1/marketplace.php?item=9" style="color: white; text-decoration: none;">Tracked</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+     
+   
+                    <a  hidden?="{{!phoneScreen}}" href="http://pwdgroups.com/next-gen-rfid-unleashed/"><img src="img/Upcoming_Project.png" style="width: 100%; margin-top: 120px;">
+
+                    </a>
+        
+   
+
+
+
+
+
+
+                <div hidden?="{{phoneScreen}}" style="height: 180px; background: #ffffff; padding-bottom: 30px; //margin-top: -20px;">
+                    <div style="max-width: 1200px; margin: 0 auto; color: white; font-size: 60px; text-align: center" horizontal layout center center-justified>
+                        <div>
+                            <a href="http://pwdgroups.com/next-gen-rfid-unleashed/">
+                                <img src="img/Upcoming_Project.png" style="width: 100%;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
         </template>
         <script>
             Polymer({
                 ready: function () {
                     this.nextCount();
+                    this.nextCount2();
                     this.selectedTab = 0;
                 },
                 browseISCEA: function () {
@@ -222,7 +313,16 @@
                     }
                     this.async(this.nextCount, null, 6000);
                 },
-                slideNumber: -1
+                slideNumber: -1,
+                nextCount2: function () {
+                    if (this.slideNumber2 < 2) {
+                        this.slideNumber2++;
+                    } else {
+                        this.slideNumber2 = 0;
+                    }
+                    this.async(this.nextCount2, null, 8000);
+                },
+                slideNumber2: -1
 
             });
         </script>
